@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.2
+ARG RUBY_VERSION=3.2.0
 FROM ruby:${RUBY_VERSION}
 
 # Default value to allow debug server to serve content over GitHub Codespace's port forwarding service
