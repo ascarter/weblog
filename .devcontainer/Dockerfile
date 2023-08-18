@@ -9,12 +9,11 @@ ENV RAILS_DEVELOPMENT_HOSTS=".githubpreview.dev,.preview.app.github.dev,.app.git
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
+# Configure bundler
+RUN mkdir /bundle && chmod 1777 /bundle
 VOLUME /bundle
 RUN bundle config set --global path '/bundle'
 ENV PATH="/bundle/ruby/${RUBY_VERSION}/bin:${PATH}"
-
-# Install Rails
-RUN gem install rails webdrivers
 
 # Ensure binding is always 0.0.0.0, even in development, to access server from outside container
 ENV BINDING="0.0.0.0"
